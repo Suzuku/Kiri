@@ -1,0 +1,201 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>主页</title>
+	<meta http-equiv="Access-Control-Allow-Origin" content="*">  
+	
+	<!-- css -->
+	<link href="../css/bootstrap.min.css" rel="stylesheet">
+	<link href="../css/common.css" rel="stylesheet">
+	<link href="../css/reset.css" rel="stylesheet">
+	
+	<!-- js  -->
+    <script src="../js/dist/jquery-3.1.1.min.js"></script>
+	<script src="../js/dist/jquery.validate.min.js"></script>
+    <script src="../js/dist/bootstrap.min.js"></script>
+	<script src="../js/dist/director.min.js"></script>
+
+	<script src="../js/project-js/jgx.js"></script>
+	<script src="../js/project-js/getLogin.js"></script>
+	<script src="../js/project-js/toggle.js"></script>
+	
+</head>
+	<body>
+		<header class="banner">
+			<div><img src="../img/logo (2).png"></div>
+			<nav class="banner-right">
+				<div class="icon">
+					<a href="">
+					<img src="../img/首页.png">
+					<p>首页</p>
+					</a>
+				</div>
+				<div class="icon">
+					<a data-toggle="modal" href="#mymodal-link">
+					<img src="../img/电话.png">
+					<p>电话接单</p>
+					</a>
+				</div>
+				<div class="icon">
+					<a data-toggle="modal" href="#change_password">
+					<img src="../img/设置.png">
+					<p>修改密码</p>
+					</a>
+				</div>
+				<div class="icon">
+					<a href="">
+					<img src="../img/退出.png">
+					<p>退出</p>
+					</a>
+				</div>
+			</nav>
+		</header>
+		<aside class="container-1">
+			<div class="slider">
+
+				<div class="login">
+
+					<div class="image">
+
+						<img src="">
+
+					</div>
+					<div class="character">
+						<h1>张三</h1><br>
+						<h2>欢迎登录！</h2>
+					</div>
+				</div>
+
+				<div class="left-side-inner">
+					<!--sidebar nav start-->
+					<ul class="custom-nav" id="leftSlider">
+
+						<!--侧栏动态生成-->
+					</ul>
+					<!--sidebar nav end-->
+				</div>
+			</div>
+			<div class="jgx-content" >
+				<iframe class='' src="" scrolling="no" frameborder="0">
+					<!--路由跳转相应的页面-->
+				</iframe>
+			</div>
+		</aside>
+
+
+		<footer class="footer">
+			<h1 class="font1">Copyright&copy;2017</h1><h2 class="font2">&nbsp;&nbsp;&nbsp;成都光尘信息技术有限公司&nbsp;&nbsp;&nbsp;版权所有</h2>
+		</footer>
+
+		<!-- Phone Order PopUp-->
+		<div class="modal fade" tabindex="-1" role="dialog" aria-labelledby="myLargeModalLabel" aria-hidden=	"true" id="mymodal-link">
+			<div class="modal-dialog">
+				<div class="modal-content">
+					<div class="modal-header">
+						<button type="button" class="close" data-dismiss="modal"><span aria-hidden="true">&times;</span><span class="sr-only">Close</span></button>
+						<h4 class="modal-title">电话接单</h4>
+					</div>
+					<div class="modal-body" id="modal-body">
+						<div class="user-message">
+							<div class="user-message-titie">
+
+								<span>用户信息</span>
+							</div>
+							<form class="form-horizontal" role="form">
+								<div class="form-group">
+									<p class="col-md-5">联系人姓名</p>
+									<input type="text" class="col-md-7" id="username" name="user-name">
+								</div>
+								<div class="form-group">
+									<p class="col-md-5">联系人电话</p>
+									<input type="text" id="userTel" class="col-md-7"  name="tel">
+								</div>
+								<div class="form-group">
+									<p class="col-md-5">维修楼盘号</p>
+									<select class="col-md-7" id="buildingName"  name="village-num" selected="selected">
+										<option></option>
+									</select>
+								</div>
+								<div class="form-group">
+									<p class="col-md-5">维修栋号</p>
+									<select class="col-md-7" id="buildingNum" name="build-num" selected="selected">
+										<option></option>
+									</select>
+								</div>
+								<div class="form-group">
+									<p class="col-md-5">维修房间号</p>
+									<select class="col-md-7" id="buildingHouseNum" name="house-num" selected="selected">
+										<option></option>
+									</select>
+								</div>
+							</form>
+						</div>
+
+						<div class="fix-message">
+							<div class="user-message-titie">
+								<span>维修信息</span>
+							</div>
+							<form class="form-horizontal" role="form">
+								<div class="form-group">
+									<p class="col-md-5">一级问题</p>
+									<select class="col-md-7 xovee1" id="questionOne" name="ques1" selected="selected">
+										<option id="current-option"></option>
+									</select>
+								</div>
+								<div class="form-group">
+									<p class="col-md-5">二级问题</p>
+									<select class="col-md-7 xovee2" id="questionTwo" name="ques2" selected="disabled">
+										<option></option>
+									</select>
+								</div>
+							</form>
+							<div class="form-group">
+								<p >问题描述</p>
+								<textarea  rows="4" cols="40" id="describe" name="description">
+								</textarea>
+							</div>
+						</div>
+					</div>
+					<div class="modal-footer">
+						<button type="button" class="btn btn-primary" id="save" data-dismiss="modal">保存</button>
+					</div>
+				</div>
+			</div>
+		</div>
+
+		<!-- Modify Pwd PopUp-->
+		<div class="modal fade" tabindex="-1" style="left:200px;" role="dialog" aria-labelledby="myLargeModalLabel" aria-hidden="true" id="change_password">
+			<div class="modal-dialog">
+				<div class="modal-content" style="width: 400px;">
+					<div class="modal-header">
+						<button type="button" class="close" data-dismiss="modal"><span aria-hidden="true">&times;</span><span class="sr-only">Close</span></button>
+						<h4 class="modal-title">修改密码</h4>
+					</div>
+					<div class="modal-body"  >
+						<form class="form-horizontal" id="pwd-form" method="get" role="form">
+							<div class="form-group" >
+								<p class="col-md-4">原密码:</p>
+								<input type="password" class="col-md-4" id="former" name="former" >
+								<span  style="font-size: 12px;color: red;"></span>
+							</div>
+							<div class="form-group" >
+								<p class="col-md-4">新密码:</p>
+								<input type="password" class="col-md-4"  id="newpwd" name="newpwd">
+								<span  style="font-size: 12px;color: red;"></span>
+							</div>
+							<div class="form-group" >
+								<p class="col-md-4">确认密码:</p>
+								<input type="password" class="col-md-4" id="surepwd" name="surepwd">
+								<span  style="font-size: 12px;color: red;"></span>
+							</div>
+						</form>
+					</div>
+					<div class="modal-footer">
+						<button type="button" class="btn btn-primary" id="savepwd" data-dismiss="modal">保存</button>
+					</div>
+				</div>
+			</div>
+		</div>
+	</body>
+</html>

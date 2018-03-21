@@ -1,0 +1,310 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>业务派单</title>
+    <script src="../js/dist/jquery-3.1.1.min.js"></script>
+    <link href="http://cdn.static.runoob.com/libs/bootstrap/3.3.7/css/bootstrap.min.css" rel="stylesheet">
+    <link href="../css/businessManagement.css" rel="stylesheet">
+    <script src="../js/project-js/businessManagement.js"></script>
+    <script src="../js/project-js/jgx.js"></script>
+    <script src="../js/dist/bootstrap.min.js"></script>
+    <link href="../css/common.css" rel="stylesheet">
+</head>
+<body>
+<!--结束派单确认弹出框-->
+<div class="modal fade" tabindex="-1" role="dialog" id="myModal">
+    <div class="modal-dialog" role="document">
+        <div class="modal-content">
+            <div class="modal-header">
+                <button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true"></span></button>
+                <h4 class="modal-title"></h4>
+            </div>
+            <div class="modal-body">
+                <p>确认结束？</p>
+            </div>
+            <div class="modal-footer">
+                <button type="button" class="btn btn-default" data-dismiss="modal">取消</button>
+                <button type="button" class="btn btn-primary" id="confirmStop">确认</button>
+            </div>
+        </div><!-- /.modal-content -->
+    </div><!-- /.modal-dialog -->
+</div><!-- /.modal -->
+<!--电话接单弹出框-->
+<!--<div class="modal fade" tabindex="-1" role="dialog" aria-labelledby="myLargeModalLabel" aria-hidden="true" id="mymodal-link">
+    <div class="modal-dialog">
+        <div class="modal-content">
+            <div class="modal-header">
+                <button type="button" class="close" data-dismiss="modal"><span aria-hidden="true">&times;</span><span class="sr-only">Close</span></button>
+                <h4 class="modal-title">电话接单</h4>
+            </div>
+            <div class="modal-body" id="modal-body">
+                <div class="user-message">
+                    <div class="user-message-titie">
+
+                        <span>用户信息</span>
+                    </div>
+                    <form class="form-horizontal" role="form">
+                        <div class="form-group">
+                            <p class="col-md-5">联系人姓名</p>
+                            <input type="text" class="col-md-7" id="user-name" name="user-name">
+                        </div>
+                        <div class="form-group">
+                            <p class="col-md-5">联系人电话</p>
+                            <input type="text" class="col-md-7"  name="tel">
+                        </div>
+                        <div class="form-group">
+                            <p class="col-md-5">维修楼盘号</p>
+                            <select class="col-md-7"  name="village-num" selected="selected">
+                                <option value =""> </option>
+                                <option>1</option>
+                                <option>2</option>
+                                <option>3</option>
+                                <option>4</option>
+                                <option>5</option>
+                            </select>
+                        </div>
+                        <div class="form-group">
+                            <p class="col-md-5">维修栋号</p>
+                            <select class="col-md-7" name="build-num" selected="selected">
+                                <option value =""> </option>
+                                <option>1</option>
+                                <option>2</option>
+                                <option>3</option>
+                                <option>4</option>
+                                <option>5</option>
+                            </select>
+                        </div>
+                        <div class="form-group">
+                            <p class="col-md-5">维修房间号</p>
+                            <select class="col-md-7" name="house-num" selected="selected">
+                                <option value =""> </option>
+                                <option>1</option>
+                                <option>2</option>
+                                <option>3</option>
+                                <option>4</option>
+                                <option>5</option>
+                            </select>
+                        </div>
+                    </form>
+                </div>
+
+                <div class="fix-message">
+                    <div class="user-message-titie">
+                        <span>维修信息</span>
+                    </div>
+                    <form class="form-horizontal" role="form">
+                        <div class="form-group">
+                            <p class="col-md-5">一级问题</p>
+                            <select class="col-md-7" name="ques1" selected="selected">
+                                <option value =""> </option>
+                                <option>1</option>
+                                <option>2</option>
+                                <option>3</option>
+                                <option>4</option>
+                                <option>5</option>
+                            </select>
+                        </div>
+                        <div class="form-group">
+                            <p class="col-md-5">二级问题</p>
+                            <select class="col-md-7" name="ques2" selected="selected">
+                                <option value =""> </option>
+                                <option>1</option>
+                                <option>2</option>
+                                <option>3</option>
+                                <option>4</option>
+                                <option>5</option>
+                            </select>
+                        </div>
+                    </form>
+                    <div class="form-group">
+                        <p >问题描述</p>
+                        <textarea  rows="4" cols="40" name="description">
+                        </textarea>
+                    </div>
+                </div>
+            </div>
+            <div class="modal-footer">
+
+                <button type="button" class="btn btn-primary" id="save" data-dismiss="modal">保存</button>
+            </div>
+
+        </div>
+    </div>
+</div>
+&lt;!&ndash;修改密码弹出框&ndash;&gt;
+<div class="modal fade" tabindex="-1" role="dialog" aria-labelledby="myLargeModalLabel" aria-hidden="true" id="change_password">
+    <div class="modal-dialog">
+        <div class="modal-content" style="width: 400px;">
+            <div class="modal-header">
+                <button type="button" class="close" data-dismiss="modal"><span aria-hidden="true">&times;</span><span class="sr-only">Close</span></button>
+                <h4 class="modal-title">修改密码</h4>
+            </div>
+            <div class="modal-body" >
+                <form class="form-horizontal" id="pwd-form" method="get" role="form">
+                    <div class="form-group" >
+                        <p class="col-md-4">原密码:</p>
+                        <input type="password" class="col-md-4" id="former" name="former" >
+                        <span  style="font-size: 12px;color: red;"></span>
+                    </div>
+                    <div class="form-group" >
+                        <p class="col-md-4">新密码:</p>
+                        <input type="password" class="col-md-4"  id="newpwd" name="newpwd">
+                        <span  style="font-size: 12px;color: red;"></span>
+                    </div>
+
+                    <div class="form-group" >
+                        <p class="col-md-4">确认密码:</p>
+                        <input type="password" class="col-md-4" id="surepwd" name="surepwd">
+                        <span  style="font-size: 12px;color: red;"></span>
+                    </div>
+                </form>
+            </div>
+            <div class="modal-footer">
+                <button type="button" class="btn btn-primary" id="save1" data-dismiss="modal">保存</button>
+            </div>
+        </div>
+    </div>
+</div>-->
+<!--<div class="banner">
+    <div><img src="../img/logo (2).png"></div>
+    <div class="banner-right">
+        <div class="icon">
+            <a href="#"><img src="../img/首页.png">
+            <p>首页</p></a>
+        </div>
+        <div class="icon">
+            <a data-toggle="modal" href="#mymodal-link"><img src="../img/电话.png">
+            <p>电话接单</p></a>
+        </div>
+        <div class="icon">
+            <a data-toggle="modal" href="#change_password"><img src="../img/设置.png">
+            <p>修改密码</p></a>
+        </div>
+        <div class="icon">
+            <a href="#"><img src="../img/退出.png">
+            <p>退出</p></a>
+        </div>
+    </div>
+</div>-->
+<div class="container-1">
+    <!--<div class="slider">
+        <div class="login">
+            <div class="image">
+                <img src="../img/管理员.png">
+            </div>
+            <div class="character">
+                <h1>张三</h1><br>
+                <h2>欢迎登录！</h2>
+            </div>
+        </div>
+        <div class="menu" >
+            <h2 a href="#">业务管理</h2>
+        </div>
+        <div class="menu">
+            <h2 a href="#">单位管理</h2>
+        </div>
+        <div class="menu">
+            <h2 a href="#">人员管理</h2>
+        </div>
+        <div class="menu">
+            <h2 a href="#">维修知识库管理</h2>
+        </div>
+        <div class="menu">
+            <h2 a href="#">报价知识库管理</h2>
+        </div>
+    </div>-->
+    <div class="right-container">
+        <div class="row">
+            <div class="navbar">
+                <div class="col-md-1">
+                    <img src="../img/当前位置.png">
+                </div>
+                <div class="col-md-4">
+                    <p>您当前的位置：首页 > 业务管理</p>
+                </div>
+                <div class="col-md-7">
+                    <h1 id="TIME"></h1>
+                </div>
+            </div>
+        </div>
+        <div class="main">
+            <div class="table-container">
+                <div class="br"></div>
+                <div class="navBar1">
+                    <div class="navBar1-left">业务管理</div>
+                    <div class="input-group" style="width: 500px">
+                        <div class="search-right">
+                            <input id="search" type="search" placeholder=" 请输入关键字..." style="border: none;outline: none;color: #666666;font-size: 14px;">
+                        </div>
+                        <span class="input-group-btn" style="padding-top: 6px;">
+                                    <button id="btn_search" class="btn btn-default" type="button" style="border-radius: 0;background-color: #eeeeee;margin-top: -1px;height: 34px">
+                                    <span class="glyphicon glyphicon-search" aria-hidden="true"></span>
+                                    </button>
+                                </span>
+                    </div>
+                </div>
+                <form class="form-inline">
+                    <div class="filter" id="oneCheck">
+                        <div>业务状态:</div>
+                        <div class="checkbox"><label><input type="checkbox" id="waitOrder" name="chk">待派单</label></div>
+                        <div class="checkbox"><label><input type="checkbox" id="ordered" name="chk">已派单</label></div>
+                        <div class="checkbox"><label><input type="checkbox" id="successOrder" name="chk">派单成功</label></div>
+                        <div class="checkbox"><label><input type="checkbox" id="fixing" name="chk">维修中</label></div>
+                        <div class="checkbox"><label><input type="checkbox" id="wait" name="chk">待评价</label></div>
+                        <div class="checkbox"><label><input type="checkbox" id="transDispatch" name="chk">转单</label></div>
+                        <div class="checkbox"><label><input type="checkbox" id="unusualDispatch" name="chk">异常订单</label></div>
+                        <div class="checkbox"><label><input type="checkbox" id="stopDispatch" name="chk">结束订单</label></div>
+                    </div>
+                </form>
+                <div class="sti-tbl-container">
+                    <div class="sti-tbl-header">
+                        <table class="table table-striped">
+                            <thead>
+                            <tr style="background-color: rgb(235,235,236)">
+                                <td style="width: 11%"><div class='checkbox'><label><input type='checkbox' id="allChoose">全选</label></div></td>
+                                <td style="width: 11%">保修单号</td>
+                                <td style="width: 11%">下单时间</td>
+                                <td style="width: 11%">派单时间</td>
+                                <td style="width: 11%">联系人姓名</td>
+                                <td style="width: 11%">联系人电话</td>
+                                <td style="width: 11%">报修问题</td>
+                                <td style="width: 11%">楼盘地址</td>
+                                <td>备注</td>
+                            </tr>
+                            </thead>
+                        </table>
+                    </div>
+                    <div class="scroll-container">
+                        <div class="scroll">
+                            <table class="table table-striped">
+                                <tbody>
+                                </tbody>
+                            </table>
+                        </div>
+                        <div class="butt-page">
+                            <div class="navBar1-right">
+                                <button id="buttRedispatch">重新派单</button>
+                                <button id="dispatchOver" data-toggle="modal" data-target="#myModal">结束</button>
+                                <button id="dispatchPause">暂停</button>
+                                <button id="dispatchGoOn">继续</button>
+                            </div>
+                            <div class="pages">
+                                <nav aria-label="Page navigation">
+                                    <ul class="pagination pagination-lg">
+                                    </ul>
+                                </nav>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+            </div>
+        </div>
+    </div>
+</div>
+<!--<div class="footer">
+    <h1 class="font1">Copyright&copy;2017</h1><h2 class="font2">&nbsp;&nbsp;&nbsp;成都光尘信息技术有限公司&nbsp;&nbsp;&nbsp;版权所有</h2>
+</div>-->
+</body>
+</html>

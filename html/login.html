@@ -1,0 +1,27 @@
+<!doctype html>
+<html>
+	<head>
+		<meta charset="utf-8">
+		<title>登录</title>
+		<link rel="stylesheet" href="../css/login.css">
+		<script src="../js/dist/jquery-3.1.1.min.js"></script>
+		<script src="../js/project-js/login.js"></script>
+	</head>
+	<body>
+		<div class="former">
+			<p class="login-title">账户登录</p>
+			<div class="variety">
+			 <input type="radio"  checked="checked" name="Mark" value="0">派单员
+			<input type="radio"  checked="checked" name="Mark" value="1">管理员
+			</div>
+				<label for="userName" class="login-name-img"></label>
+				<input type="text" id="userName" name="userName" value="" placeholder="登录帐号"
+					   required autofocus="autofocus">
+				<label for="userPwd" class="login-pwd-img"></label>
+				<input type="password" id="userPwd" name="userPwd" value="" placeholder="登录密码"
+					   required>
+			<input class="loginBtn" type="submit" value="登录">
+			<p><a id="forgetPwd">忘记密码</a></p>
+		</div>
+	</body>
+</html>

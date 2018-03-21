@@ -1,0 +1,184 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>业务派单</title>
+    <script src="../js/dist/jquery-3.1.1.js"></script>
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/font-awesome/4.6.3/css/font-awesome.min.css">
+    <link href="http://cdn.static.runoob.com/libs/bootstrap/3.3.7/css/bootstrap.min.css" rel="stylesheet">
+    <script type="text/javascript" src="../js/dist/bootstrap.min.js"></script>
+    <link href="../css/buildingManager.css" type="text/css" rel="stylesheet">
+    <link rel="stylesheet" href="../css/addBuildings.css">
+    <script src="../js/project-js/addBuildings.js"></script>
+
+</head>
+<body>
+    <div class="right-container">
+        <div class="row">
+        <div class="navbar">
+                <div class="col-md-1">
+                    <img src="../img/当前位置.png">
+                </div>
+                <div class="col-md-4">
+                    <p>您当前的位置：首页 > 楼盘管理</p>
+                </div>
+                <div class="col-md-7">
+                    <h1 id="TIME"></h1>
+                </div>
+        </div>
+        </div>
+        <div class="main">
+            <div class="box_first">
+                <div class="navBar1">
+                    <select class="form-control navBar1-left" style="width: 20%">
+                        <option>1</option>
+                        <option>2</option>
+                        <option>3</option>
+                        <option>4</option>
+                        <option>5</option>
+                    </select>
+                    <div class="input-group" style="width: 20%">
+                        <div class="search-right">
+                            <input id="input_1"  class="form-control" type="text" placeholder=" 请输入关键字..." >
+                        </div>
+                        <span class="input-group-btn">
+                            <button id="button_search" class="btn btn-default" type="button">
+                                <span class="glyphicon glyphicon-search" aria-hidden="true"></span>
+                            </button>
+                        </span>
+                    </div>
+                </div>
+
+            <div class="row box_table">
+                <div class="table-responsive">
+                <table class="table table-striped">
+                    <tbody>
+                    <tr>
+                        <th id="check_box"><input type="checkbox" id="checkAll">&nbsp全选</th>
+                        <th id="loupanname">楼盘名称</th>
+                        <th id="address">楼盘地址</th>
+                        <th id="managerName">管理员用户名</th>
+                        <th id="phone">联系电话</th>
+                        <th id="handler">操作</th>
+                    </tr>
+                    </tbody>
+                </table>
+            </div>
+            </div>
+            <div class="box_under">
+             <div class="navBar1-right">
+                    <button data-toggle="modal" data-target="#companyAdd">增加</button>
+                    <button>删除</button>
+                    
+                </div>               
+                 <div class="show_number_situation">
+                    共有<span id="show_number"></span>条记录
+                </div>
+                <ul class="pagination">
+                    <li><a href="#">&laquo;</a></li>
+                    <li class="active"><a href="#">1</a></li>
+                    <li class="disabled"><a href="#">2</a></li>
+                    <li><a href="#">3</a></li>
+                    <li><a href="#">4</a></li>
+                    <li><a href="#">5</a></li>
+                    <li><a href="#">&raquo;</a></li>
+                </ul>
+            </div>
+        </div>
+    </div>
+    </div>
+</div>
+<!-- 模态框（Modal） -->
+<div class="modal fade" id="companyAdd" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true">
+    <div class="modal-dialog">
+        <div class="modal-content">
+            <div class="modal-body">
+                <!--模态框内容-->
+                <div class="main">
+                    <div class="main-container">
+                        <div class="add-building">
+                            <div>
+                                <p>添加楼盘</p>
+                                <div id="choose-address">
+                                    <span>地址</span>
+                                    <select class="form-control" style="width: 25%" id="choose-province">
+                                        <option>...</option>
+                                    </select>
+                                    <select class="form-control" style="width: 25%" id="choose-city">
+                                        <option>...</option>
+                                    </select>
+                                    <select class="form-control" style="width: 25%" id="choose-local">
+                                        <option>...</option>
+                                    </select>
+                                </div>
+                                <div>
+                                    <select class="form-control" id="choose-street">
+                                        <option>...</option>
+                                    </select>
+                                </div>
+                                <div id="detail-address">
+                                    <span>详细地址</span>
+                                    <input class="form-control" placeholder="请输入详细地址（如地址号23008号）" id="detail">
+                                </div>
+                                <div id="building-name">
+                                    <span>楼盘名</span>
+                                    <input class="form-control" placeholder="请输入楼盘名" id="buildingName">
+                                </div>
+                                <button class="btn btn-primary" id="building-submit">提交</button>
+                            </div>
+                        </div>
+                        <div class="add-house">
+                            <div>
+                                <p>添加单元/栋</p>
+                                <p>选择楼盘</p>
+                                <select id="choosebuilding" class="form-control">
+                                    <option>...</option>
+                                </select>
+                                <p>添加单元/栋</p>
+                                <div class="input-group">
+                                    <input type="text" class="form-control" placeholder="在此处输入您的单元/栋 如：一单元/一栋" id="danyuanname">
+                                    <span class="input-group-btn">
+        <button class="btn btn-default" type="button" id="danyuanadd">添加</button>
+        </span>
+                                </div><!-- /input-group -->
+                                <ul id="danyuanlist" class="list-group">
+
+                                </ul>
+                            </div>
+                            <button class="btn btn-primary" id="danyuansubmit">提交</button>
+                        </div>
+                        <div class="add-room">
+                            <div>
+                                <p>添加房间</p>
+                                <p>选择楼盘</p>
+                                <select id="choosebuilding2" class="form-control">
+                                    <option>...</option>
+                                </select>
+                                <p>选择单元/栋</p>
+                                <select id="chooseroom" class="form-control">
+                                    <option>...</option>
+                                </select>
+                                <p>添加房间号</p>
+                                <div class="input-group">
+                                    <input type="text" class="form-control" placeholder="在此处输入您的房间号 如：2001号" id="roomname">
+                                    <span class="input-group-btn">
+                <button class="btn btn-default" type="button" id="roomadd">添加</button>
+            </span>
+                                </div><!-- /input-group -->
+                                <ul id="roomlist" class="list-group">
+
+                                </ul>
+                            </div>
+                            <button class="btn btn-primary" id="roomsubmit">提交</button>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div class="modal-footer">
+                <button type="button" class="btn btn-default" data-dismiss="modal">关闭</button>
+            </div>
+        </div><!-- /.modal-content -->
+    </div><!-- /.modal -->
+</div>
+</body>
+</html>

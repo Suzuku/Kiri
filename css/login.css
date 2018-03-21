@@ -1,0 +1,77 @@
+body {
+	background: url(../img/login.jpg) no-repeat;
+}
+.former {
+	position: absolute;
+	width: 30%;
+	right: 10%;
+	top: 20%;
+	background-color: white;
+	border-radius: 10px;
+}
+.login-title {
+	margin: 10px;
+	font: 30px "幼圆";
+	color: #1a1a1a;
+}
+.variety {
+	font-size: 18px;
+}
+#userName {
+	width: 70%;
+	height: 50px;
+	margin: 10px;
+	margin-top: 20px;
+	font-size: 28px;
+	padding-left: 70px;
+	font-family: "幼圆";
+	border-radius: 5px;
+	border: 1px solid #ccc;
+}
+#userPwd {
+	width: 70%;
+	height: 50px;
+	margin: 10px;
+	margin-top: 0;
+	font-size: 28px;
+	padding-left: 70px;
+	font-family: "幼圆";
+	border-radius: 5px;
+	border: 1px solid #ccc;
+}
+.loginBtn {
+	width: 88%;
+	height: 50px;
+	margin: 10px;
+	margin-top: 0px;
+	background-color: #3c8fe2;
+	color: #fff;
+	font: 28px "幼圆";
+	border: none;
+	border-radius: 5px;
+}
+#forgetPwd {
+	float: right;
+	margin-right: 10%;
+	margin-bottom: 5px;
+	font: 18px "幼圆";
+}
+.login-name-img {
+	position: absolute;
+	left: 12px;
+	top: 99px;
+	background: url(../img/loginName.png) no-repeat center;
+	background-size: cover;
+	border-right: 1px solid #ccc;
+	width: 50px;
+	height: 50px;
+}
+.login-pwd-img {
+	position: absolute;
+	left: 12px;
+	top: 163px;
+	background: url(../img/loginPwd.png) no-repeat center;
+	border-right: 1px solid #ccc;
+	width: 50px;
+	height: 50px;
+}

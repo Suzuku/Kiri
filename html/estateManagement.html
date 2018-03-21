@@ -1,0 +1,310 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>业务派单</title>
+    <script src="../js/dist/jquery-3.1.1.min.js"></script>
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/font-awesome/4.6.3/css/font-awesome.min.css">
+    <link href="http://cdn.static.runoob.com/libs/bootstrap/3.3.7/css/bootstrap.min.css" rel="stylesheet"><link href="../css/eatateManagement.css" type="text/css" rel="stylesheet">
+    <link rel="stylesheet" href="../css/estateManagement1.css">
+    <script src="../js/project-js/estateManagement.js"></script>
+    <link href="../css/weui.min.css" rel="stylesheet">
+    <link rel="stylesheet" href="../css/map.css" type="text/css">
+    <link rel="stylesheet" href="../css/weui.css" type="text/css">
+    <script type="text/javascript" src="../js/dist/jquery-3.0.0.min.js"></script>
+    <script type="text/javascript" src="http://api.map.baidu.com/api?v=2.0&ak=yOI0I1FbpQm0iGLObZXiOddXylZjg6EC">
+        //v2.0版本的引用方式：src="http://api.map.baidu.com/api?v=2.0&ak=您的密钥"
+    </script>
+    <script type="text/javascript" src="../js/project-js/map.js"></script>
+    <script type="text/javascript" src="../js/dist/bootstrap.min.js"></script>
+    <script src="../js/project-js/delBuildings.js"></script>
+</head>
+<body>
+<div class="right-container">
+    <div class="row">
+        <div class="navbar">
+            <div class="col-md-1">
+                <img src="../img/当前位置.png">
+            </div>
+            <div class="col-md-4">
+                <p>您当前的位置：首页 > 楼盘管理</p>
+                <button onclick="showOverlay()">dianji </button>
+                <button>dianji </button>
+            </div>
+            <div class="col-md-7">
+                <h1 id="TIME"></h1>
+            </div>
+        </div>
+    </div>
+    <div class="main">
+        <div class="box_first">
+            <div class="navBar1">
+                <select class="form-control navBar1-left" style="width: 20%">
+                    <option>1</option>
+                    <option>2</option>
+                    <option>3</option>
+                    <option>4</option>
+                    <option>5</option>
+                </select>
+                <div class="input-group" style="width: 20%">
+                    <div class="search-right">
+                        <input id="input_1"  class="form-control" type="text" placeholder=" 请输入关键字..." >
+                    </div>
+                    <span class="input-group-btn">
+                            <button id="button_search" class="btn btn-default" type="button">
+                                <span class="glyphicon glyphicon-search" aria-hidden="true"></span>
+                            </button>
+                        </span>
+                </div>
+            </div>
+            <div class="row box_table">
+                <div class="table-responsive">
+                    <table class="table table-striped">
+                        <thead>
+                        <tr>
+                            <th id="loupanname">楼盘名称</th>
+                            <th id="address">楼盘地址</th>
+                            <th id="handler">操作</th>
+                        </tr>
+                        </thead>
+                        <tbody>
+
+                        </tbody>
+                    </table>
+                </div>
+            </div>
+            <div class="box_under">
+                <div class="navBar1-right">
+                    <button id="addBuilding">增加</button>
+                    <button id="showBuilding">删除</button>
+                </div>
+                <ul class="pagination">
+
+                </ul>
+            </div>
+        </div>
+    </div>
+</div>
+                <div class="main-hide" draggable="true" id="mainHideAdd">
+                    <div class="main-container">
+                        <div class="close-window"><span class="glyphicon glyphicon-remove-circle" id="hide1"></span></div>
+                        <div class="inside-container">
+                        <div class="add-building">
+                            <div class="weui-search-bar weui-search-bar_focusing" id="searchBar">
+                                <form class="weui-search-bar__form">
+                                    <div class="weui-search-bar__box">
+                                        <i class="weui-icon-search"></i>
+                                        <input type="search" class="weui-search-bar__input" placeholder="搜索" id="map-input" required="required" autofocus="autofocus">
+                                        <a href="javascript:" class="weui-icon-clear" id="searchClear"></a>
+                                    </div>
+                                </form>
+                            </div>
+                            <div id="searchResultPanel"></div>
+                            <div id="container"></div>
+                            <div class="weui_cells_title"><p class="mapp">附近地点</p></div>
+                            <div class="weui_cells">
+                                <div class="weui_cell">
+                                    <div class="weui_cell_bd weui_cell_primary">
+                                        <div id="panel" class="weui_actionsheet_menu"></div>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="street-number">
+                                <p>详细地址</p>
+                                <input class="form-control" placeholder="请填写详细地址（如：xx号）" type="text" id="streetNumber">
+                            </div>
+                            <div class="buildingName">
+                                <p>增加楼盘名</p>
+                                <input class="form-control" placeholder="请填写楼盘名" type="text" id="buildName">
+                            </div>
+                            <button class="btn btn-primary" id="locationSubmit">提交</button>
+                        </div>
+                        <div class="add-house">
+                            <div>
+                                <p>添加单元/栋</p>
+                                <p>选择楼盘</p>
+                                <select id="choosebuilding" class="form-control">
+                                    <option>...</option>
+                                </select>
+                                <p>添加单元/栋</p>
+                                <div class="input-group">
+                                    <input type="text" class="form-control" placeholder="在此处输入您的单元/栋 如：一单元/一栋" id="danyuanname">
+                                    <span class="input-group-btn">
+        <button class="btn btn-default" type="button" id="danyuanadd">添加</button>
+        </span>
+                                </div><!-- /input-group -->
+                                <ul id="danyuanlist" class="list-group">
+
+                                </ul>
+                            </div>
+                            <button class="btn btn-primary" id="danyuansubmit">提交</button>
+                        </div>
+                        <div class="add-room">
+                            <div>
+                                <p>添加房间</p>
+                                <p>选择楼盘</p>
+                                <select id="choosebuilding2" class="form-control">
+                                    <option>...</option>
+                                </select>
+                                <p>选择单元/栋</p>
+                                <select id="chooseroom" class="form-control">
+                                    <option>...</option>
+                                </select>
+                                <p>添加房间号</p>
+                                <div class="input-group">
+                                    <input type="text" class="form-control" placeholder="在此处输入您的房间号 如：2001号" id="roomname">
+                                    <span class="input-group-btn">
+                <button class="btn btn-default" type="button" id="roomadd">添加</button>
+            </span>
+                                </div><!-- /input-group -->
+                                <ul id="roomlist" class="list-group">
+                                </ul>
+                            </div>
+                            <button class="btn btn-primary" id="roomsubmit">提交</button>
+                        </div>
+                        </div>
+                    </div>
+                </div>
+<!-- 修改/删除模态框（Modal） -->
+<div class="main-hide" draggable="true" id="mainHideChange">
+    <div class="main-container">
+        <div class="close-window"><span class="glyphicon glyphicon-remove-circle" id="hide2"></span></div>
+        <div class="inside-container">
+                        <div class="add-building">
+                            <div class="weui-search-bar weui-search-bar_focusing" id="searchBar1">
+                                <form class="weui-search-bar__form">
+                                    <div class="weui-search-bar__box">
+                                        <i class="weui-icon-search"></i>
+                                        <input type="search" class="weui-search-bar__input" placeholder="搜索" id="map-input1" required="required" autofocus="autofocus">
+                                        <a href="javascript:" class="weui-icon-clear" id="searchClear1"></a>
+                                    </div>
+                                </form>
+                            </div>
+                            <div id="searchResultPanel1"></div>
+                            <div id="container1"></div>
+                            <div class="weui_cells_title"><p class="mapp">附近地点</p></div>
+                            <div class="weui_cells">
+                                <div class="weui_cell">
+                                    <div class="weui_cell_bd weui_cell_primary">
+                                        <div id="panel1" class="weui_actionsheet_menu"></div>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="street-number">
+                                <p>详细地址</p>
+                                <input class="form-control" placeholder="请填写详细地址（如：xx号）" type="text" id="streetNumber1">
+                            </div>
+                            <div class="buildingName">
+                                <p>楼盘名</p>
+                                <input class="form-control" placeholder="请填写楼盘名" type="text" id="buildName1">
+                            </div>
+                                <button class="btn btn-primary" id="changeInfo">修改</button>
+                                <button class="btn btn-primary" id="deleteInfo">删除</button>
+                            <!--<div>
+                                <p>修改/删除楼盘</p>
+                                <div id="delAddress">
+                                    <span>地址</span>
+                                    <select class="form-control"  id="delProvince">
+                                        <option>...</option>
+                                    </select>
+                                    <select class="form-control" id="delCity">
+                                        <option>...</option>
+                                    </select>
+                                    <select class="form-control"  id="delLocal">
+                                        <option>...</option>
+                                    </select>
+                                </div>
+                                <div>
+                                    <select class="form-control" id="delStreet">
+                                        <option>...</option>
+                                    </select>
+                                </div>
+                                <div id="delDetailAddress">
+                                    <span>详细地址</span>
+                                    <input class="form-control" placeholder="请输入详细地址（如地址号23008号）" id="delDetail">
+                                </div>
+                                <div id="delBuildingName">
+                                    <span>楼盘名</span>
+                                    <input class="form-control" placeholder="请输入楼盘名" id="delIptBuildName">
+                                </div>
+                                <button class="btn btn-primary" id="delBuildingSubmit">提交</button>
+                            </div>-->
+                        </div>
+            <div class="add-house">
+                <div>
+                    <p>修改/删除 单元/栋</p>
+                    <p>选择楼盘</p>
+                    <select id="delChooseBuilding" class="form-control">
+                        <option>...</option>
+                    </select>
+                    <p>修改/删除 单元/栋</p>
+                    <ul id="delBuildingList" class="list-group">
+
+                    </ul>
+                </div>
+            </div>
+            <div class="add-room">
+                <div>
+                    <p>修改/删除房间</p>
+                    <p>选择楼盘</p>
+                    <select id="delChsBuilding2" class="form-control">
+                        <option>...</option>
+                    </select>
+                    <p>选择单元/栋</p>
+                    <select id="delChooseRoom" class="form-control">
+                        <option>...</option>
+                    </select>
+                    <p>修改/删除房间号</p>
+                    <ul id="delRoomList" class="list-group">
+
+                    </ul>
+                </div>
+            </div>
+                    </div>
+                </div>
+            </div>
+</body>
+</html>
+<script type="text/javascript" class="searchbar js_show">
+        $(function(){
+            var $searchBar = $('#searchBar'),
+                $searchResult = $('#searchResult'),
+                $searchInput = $('#map-input'),
+                $searchClear = $('#searchClear'),
+                $searchCancel = $('#searchCancel');
+
+        function hideSearchResult(){
+            $searchResult.hide();
+            $searchInput.val('');
+        }
+        function cancelSearch(){
+            hideSearchResult();
+            $searchBar.removeClass('weui-search-bar_focusing');
+            $searchText.show();
+        }
+        $searchClear.on('click', function(){
+            hideSearchResult();
+            $searchInput.focus();
+        });
+        $searchCancel.on('click', function(){
+            cancelSearch();
+            $searchInput.blur();
+        });
+    });</script>
+<script type="text/javascript">
+    //显示灰色 jQuery 遮罩层
+    function showBg() {
+        var bh = $("body").height();
+        var bw = $("body").width();
+        $("#fullbg").css({
+            height:bh,
+            width:bw,
+            display:"block"
+        });
+        $("#dialog").show();
+    }
+    //关闭灰色 jQuery 遮罩
+    function closeBg() {
+        $("#fullbg,#dialog").hide();
+    }
+</script>

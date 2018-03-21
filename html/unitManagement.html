@@ -1,0 +1,326 @@
+<!DOCTYPE html>
+<html lang="en" style="height: 100%">
+<head>
+    <meta charset="UTF-8">
+    <title>业务派单</title>
+    <script src="../js/dist/jquery-3.1.1.min.js"></script>
+    <script src="../js/dist/jquery.validate.min.js"></script>
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/font-awesome/4.6.3/css/font-awesome.min.css">
+    <link href="http://cdn.static.runoob.com/libs/bootstrap/3.3.7/css/bootstrap.min.css" rel="stylesheet">
+    <script type="text/javascript" src="../js/dist/bootstrap.min.js"></script>
+    <script type="text/javascript" src="../js/project-js/unitManagement.js"></script>
+    <link href="../css/unitManagement.css" type="text/css" rel="stylesheet">
+    <link rel="stylesheet" type="text/css" href="../css/page.css">
+    <script type="text/javascript" src="../js/project-js/jgx.js"></script>
+
+</head>
+<body style="height: 100%">
+
+<div class="right-container">
+<div id="loading"><i class="icon-spinner icon-spin icon-4x"></i></div>
+
+    <div class="row">
+        <div class="navbar">
+            <div class="col-md-1">
+                <img src="../image/homepage.png">
+            </div>
+            <div class="col-md-4">
+                <p>您当前的位置：首页 > 单位管理</p>
+            </div>
+            <div class="col-md-7">
+                <h1 id="TIME"></h1>
+            </div>
+        </div>
+    </div>
+    <div class="main">
+        <div class="box_first">
+            <div class="navBar1">
+                <p>单位管理</p>
+
+                <div class="input-group" style="width: 20%">
+                    <div class="search-right">
+                        <input id="input_1"  class="form-control" type="text" placeholder=" 请输入关键字..." >
+                    </div>
+                    <span class="input-group-btn">
+                            <button id="button_search" class="btn btn-default" type="button">
+                                <span class="glyphicon glyphicon-search" aria-hidden="true"></span>
+                            </button>
+                        </span>
+                </div>
+            </div>
+
+            <div class="row box_table">
+                <div class="table-responsive" style="overflow: hidden">
+                    <table class="table table-striped" >
+                        <tbody>
+                        <tr>
+                            <th id="check_box"><input type="checkbox" id="checkAll">&nbsp全选</th>
+                            <th id="name">单位名称</th>
+                            <th id="dutyman">负责人</th>
+                            <th id="dutymanTel">负责人电话</th>
+                            <th id="callman">联系人</th>
+                            <th id="callmanTel">联系人电话</th>
+                            <th id="address">单位地址</th>
+                            <th id="handler">操作</th>
+                        </tr>
+                        </tbody>
+
+                    </table>
+                </div>
+            </div>
+            <div class="box_under">
+                <div class="navBar1-right">
+                    <button data-toggle="modal" data-target="#companyAdd" id="unitAdd">增加</button>
+                    <button id="unitDelete">删除</button>
+                </div>
+                <div class="pager-list">
+                </div>
+            </div>
+        </div>
+    </div>
+
+
+
+
+    <!-- 增加单位 -->
+    <div class="modal fade" style="left: -250px;top:50px;" id="companyAdd" tabindex="-1" role="dialog" aria-labelledby="mySmallModalLabel" aria-hidden="true">
+        <div class="modal-dialog">
+            <div class="modal-content" >
+                <div class="modal-header">
+                    <button type="button" class="close" data-dismiss="modal"><span aria-hidden="true">&times;</span><span class="sr-only">Close</span></button>
+                    <h4 class="modal-title">增加单位</h4>
+                </div>
+                <div class="modal-body" id="modal-body">
+                    <div class="user-message">
+                        <div class="user-message-titie">
+                            <span>单位信息</span>
+                        </div>
+                        <form class="form-horizontal"  method="get" role="form">
+                            <div class="form-group" >
+                                <p class="col-md-5">单位名称</p>
+                                <input type="text" class="col-md-7" id="add-unitName" name="former" >
+
+                            </div>
+                            <div class="form-group" >
+                                <p class="col-md-5">负责人</p>
+                                <input type="textare" class="col-md-7"  id="add-headerName" name="newpwd">
+
+                            </div>
+                            <div class="form-group" >
+                                <p class="col-md-5">负责人电话</p>
+                                <input type="text" class="col-md-7"  id="add-headerTel" name="newpwd">
+
+                            </div>
+                            <div class="form-group" >
+                                <p class="col-md-5">联系人</p>
+                                <input type="text" class="col-md-7"  id="add-userName" name="newpwd">
+                            </div>
+
+                            <div class="form-group" >
+                                <p class="col-md-5">联系人电话</p>
+                                <input type="text" class="col-md-7"  id="add-userTel" name="newpwd">
+                            </div>
+
+                            <div class="form-group" >
+                                <p class="col-md-5">单位地址</p>
+                                <input type="text" class="col-md-7"  id="add-unitAddress" name="newpwd">
+                            </div>
+
+
+
+                            <div class="form-group" >
+                                <p class="col-md-5">邮箱</p>
+                                <input type="text" class="col-md-7"  id="add-email" name="newpwd">
+                            </div>
+
+                            <div class="form-group" >
+                                <p class="col-md-5">微信</p>
+                                <input type="text" class="col-md-7"  id="add-weixin" name="newpwd">
+                            </div>
+
+
+                            <div class="form-group">
+                                <p class="col-md-5">单位介绍</p>
+                                <textarea   placeholder="本单位擅长五金维修、渗漏水处理等..." style="margin-left: 10px;" rows="3" cols="30" id="add-unitDesc" name="description"
+                                ></textarea>
+                            </div>
+
+                        </form>
+                    </div>
+                    <div class="fix-message1" style="margin-left: -10px;" >
+                        <div class="user-message-titie">
+                            <span>楼盘信息</span>
+                        </div>
+                        <form class="form-horizontal"  method="get" role="form">
+                            <div id="addbuild-page" style="height: 400px;overflow: auto;">
+
+
+
+                            </div>
+                    </div>
+
+                </div>
+
+
+
+                <div class="modal-footer">
+
+                    <button type="submit" class="btn btn-primary" id="addUnit-save" data-dismiss="modal">保存</button>
+                </div>
+
+            </div>
+        </div>
+    </div>
+
+
+
+
+    <!-- 查看单位其他信息 -->
+    <div class="modal fade" id="buildSurf" style="left: 100px;top:50px;" tabindex="-1" role="dialog" aria-labelledby="mySmallModalLabel" aria-hidden="true">
+        <div class="modal-dialog">
+            <div class="modal-content" style="width:300px;">
+                <div class="modal-header">
+                    <button type="button" class="close" data-dismiss="modal"><span aria-hidden="true">&times;</span><span class="sr-only">Close</span></button>
+                    <h4 class="modal-title">查看信息</h4>
+                </div>
+                <div class="modal-body" id="buildSurf-page" >
+                    <form class="form-horizontal" method="get" role="form">
+
+                        <div class="form-group" >
+                            <p class="col-md-4">邮箱</p>
+                            <input type="text" class="col-md-7"  id="surf-email"  readonly ="true">
+                        </div>
+                        <br>
+                        <br>
+                        <div class="form-group" >
+                            <p class="col-md-4">微信</p>
+                            <input type="text" class="col-md-7"  id="surf-weixin"  readonly ="true">
+                        </div>
+                        <br>
+                        <br>
+                        <div class="form-group" >
+                            <p class="col-md-4">负责楼盘</p>
+                            <textarea style="margin-left: 10px;" rows="3" cols="30" id="surf-build"  name="description" readonly ="true"
+                            ></textarea>
+                        </div>
+
+
+                        <div class="form-group">
+                            <p class="col-md-4">单位介绍</p>
+                            <textarea style="margin-left: 10px;" rows="3" cols="30" id="surf-unitDesc" name="description" readonly ="true"
+                            ></textarea>
+                        </div>
+                </div>
+                <div class="modal-footer" style="margin-top: 15px;">
+
+                    <button type="button" class="btn btn-primary"   data-dismiss="modal">确定</button>
+                </div>
+                </form>
+
+
+            </div>
+        </div>
+    </div>
+    <!-- 委派楼盘 -->
+
+    <div class="modal fade" id="buildDis" style="left: 100px;top:50px;" tabindex="-1" role="dialog" aria-labelledby="mySmallModalLabel" aria-hidden="true">
+        <div class="modal-dialog">
+            <div class="modal-content" style="width:300px;">
+                <div class="modal-header">
+                    <button type="button" class="close" data-dismiss="modal"><span aria-hidden="true">&times;</span><span class="sr-only">Close</span></button>
+                    <h4 class="modal-title">选择委派楼盘</h4>
+                </div>
+                <div class="modal-body" id="buildis-page" style="padding-left: 50px;height: 300px;overflow: auto; ">
+                    <form class="form-horizontal"  method="get" role="form">
+                </div>
+                <div class="modal-footer" style="margin-top: 15px;">
+
+                    <button type="button" class="btn btn-primary"  id="buildis-sure" data-dismiss="modal">确定</button>
+                </div>
+                </form>
+
+
+            </div>
+        </div>
+    </div>
+
+
+    <!-- 编辑单位 -->
+    <div class="modal fade" style="left: 20px;top:50px;" id="editCompany" tabindex="-1" role="dialog" aria-labelledby="mySmallModalLabel" aria-hidden="true">
+        <div class="modal-dialog">
+            <div class="modal-content" style="width:70%;">
+                <div class="modal-header">
+                    <button type="button" class="close" data-dismiss="modal"><span aria-hidden="true">&times;</span><span class="sr-only">Close</span></button>
+                    <h4 class="modal-title">编辑单位</h4>
+                </div>
+                <div class="modal-body" style="margin-left: 5px">
+                    <form class="form-horizontal"  method="get" role="form">
+                        <div class="form-group" >
+                            <p class="col-md-4">单位名称</p>
+                            <input type="text" class="col-md-7" id="edit-unitName" name="former" >
+
+                        </div>
+                        <div class="form-group" >
+                            <p class="col-md-4">负责人</p>
+                            <input type="text" class="col-md-7"  id="edit-headerName" name="newpwd">
+
+                        </div>
+                        <div class="form-group" >
+                            <p class="col-md-4">负责人电话</p>
+                            <input type="text" class="col-md-7"  id="edit-headerTel" name="newpwd">
+
+                        </div>
+                        <div class="form-group" >
+                            <p class="col-md-4">联系人</p>
+                            <input type="text" class="col-md-7"  id="edit-userName" name="newpwd">
+                        </div>
+
+                        <div class="form-group" >
+                            <p class="col-md-4">联系人电话</p>
+                            <input type="text" class="col-md-7"  id="edit-userTel" name="newpwd">
+                        </div>
+
+                        <div class="form-group" >
+                            <p class="col-md-4">单位地址</p>
+                            <input type="text" class="col-md-7"  id="edit-unitAddress" name="newpwd">
+                        </div>
+
+
+
+                        <div class="form-group" >
+                            <p class="col-md-4">邮箱</p>
+                            <input type="text" class="col-md-7"  id="edit-email" name="newpwd">
+                        </div>
+
+                        <div class="form-group" >
+                            <p class="col-md-4">微信</p>
+                            <input type="text" class="col-md-7"  id="edit-weixin" name="newpwd">
+                        </div>
+
+
+                        <div class="form-group">
+                            <p class="col-md-4">单位介绍</p>
+                            <textarea   rows="3" cols="30" id="edit-unitDesc" name="description" >本单位擅长五金维修、渗漏水处理等..
+                                </textarea>
+                        </div>
+
+
+                </div>
+
+
+                <div class="modal-footer">
+
+                    <button type="button"  class="btn btn-primary"  id="edit-sure" data-dismiss="modal">确定</button>
+                </div>
+            </div>
+        </div>
+    </div>
+
+
+
+
+
+
+
+</body>
+</html>

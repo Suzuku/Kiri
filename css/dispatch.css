@@ -1,0 +1,273 @@
+html,body{
+    margin: 0;
+    padding: 0;
+    height: 100%;
+    width: 100%;
+    overflow-x:hidden;
+}
+
+
+
+*{margin:0;padding:0;}
+
+h1,h2{
+    padding: 0;
+    margin: 0;
+}
+.banner{
+    background-color: #3c9fe2;
+    height: 80px;
+    width: 100%;
+    display: flex;
+    justify-content: space-between;
+    color: white;
+}
+.banner img{
+    height: 80px;
+}
+.banner-right{
+    display: flex;
+    color: #eef8ff;
+    height: 100%;
+}
+.icon{
+    width: 150px;
+    height: 100%;
+    align-self: center;
+    text-align: center;
+}
+.icon img{
+    width:40px;
+    height: 45px;
+    padding-top: 15px;
+}
+.icon:hover{
+    background-color: #076aab;
+}
+.icon p{
+    margin: 0 auto;
+    font-size: 20px;
+    text-align: center;
+}
+.container-1{
+    display: flex;
+    flex-direction: row;
+    width: 100%;
+    height: 85%;
+}
+.slider{
+    height: 100%;
+    width: 300px;
+    background: #32323a;
+}
+.login{
+    height: 250px;
+    display: flex;
+    flex-direction: row;
+}
+.image{
+    width: 150px;
+    height: 140px;
+    margin-top: 55px;
+    margin-left: 20px;
+    margin-right: 20px;
+}
+.character{
+    width: 140px;
+    height: 140px;
+    margin-top: 90px;
+}
+.character li{
+    list-style-type: none;
+    font-family: 黑体;
+}
+.character h1{
+    font-size: 20px;
+    color:#3c9fe2;
+    font-weight: normal;
+}
+.character h2{
+    font-size: 18px;
+    color:#ffffff;
+    font-weight: normal;
+}
+.slider-botoom{
+    width:100%;
+}
+.menu{
+    font-family: 黑体;
+    height: 45px;
+    width:100%;
+    border-bottom: 1px solid #ffffff;
+}
+.menu:hover{
+    background:#076aab;
+}
+.menu h2{
+    line-height: 40px;
+    margin-left:40px;
+    font-size: 20px;
+    color: #e3e3e3;
+    font-family: 黑体;
+    font-weight: lighter;
+}
+
+
+.right-container{
+    display: flex;
+    flex-direction: column;
+    width:100%;
+    height: 100%;
+}
+.navbar{
+    height: 60px;
+    width: 100%;
+    padding-left: 1%;
+    padding-right: 1%;
+    padding-top: 1%;
+    background: #f6f6f6;
+    border-bottom: 1px solid #323232;
+    margin-bottom: 0px;
+}
+.navbar p{
+    font-family: 黑体;
+    color: #323232;
+    font-size: 16px;
+    font-weight: lighter;
+    white-space:nowrap;
+}
+#TIME{
+    font-family: 黑体;
+    color: #323232;
+    font-size: 16px;
+    float: right;
+}
+.right-container .row{
+    margin-left: 0px;
+    margin-right: 0px;
+}
+.right-container .col-md-1{
+    width:2%;
+}
+.main{
+    /*border-top: 5px solid #3c9fe2;*/
+    font-size: 16px;
+    width: 100%;
+    height: 95%;
+    padding-left: 20px;
+    padding-right: 20px;
+    background: #f1f1f1;
+}
+.footer{
+    display: flex;
+    flex-direction: row;
+    height: 70px;
+    width:100%;
+    background: #cccccc;
+}
+.font1 {
+    margin-top: 30px;
+    padding-left: 35%;
+    color: #313131;
+    font-family: Consolas;
+    font-weight: lighter;
+    font-size: 20px;
+}
+.font2 {
+    margin-top: 30px;
+    color: #313131;
+    font-family: 黑体;
+    font-weight: lighter;
+    font-size: 20px;
+}
+
+/*
+许挺
+*/
+.HolyGrail-bottom{
+    display: flex;
+    justify-content: space-between;
+}
+th{
+    width:80px;
+}
+.top-table{
+    font-size: 24px;
+}
+.caption{
+    height: 90%;
+    margin-top: 20px;
+    font-size: 15px;
+    border:1px solid #cccccc;
+    border-top-width:5px;
+    border-top-color: #3197e1;
+    background: #ffffff;
+}
+hr{
+    border-color: #cccccc;
+    margin: 0;
+}
+.table{
+    /*border:1px solid #ddd;*/
+    margin-bottom: 0px;
+}
+.table-fa{
+    padding: 20px;
+
+    height:87%;
+
+    background:#ffffff ;
+}
+
+.button-table{
+    height: 35px;
+    color: #ffffff;
+    background: #32323A;
+    border-radius: 5px;
+    border:none;
+    display:block;
+    margin-left: 20px;
+}
+.pagination{
+    margin: 0;
+}
+.HolyGrail-bottom{
+    background: #ffffff;
+}
+.button-op{
+    color: #ffffff;
+    background: #32323A;
+    border-radius: 5px;
+    border:none;
+    display:block;
+    margin-left: 20px;
+    margin-top: 0px;
+}
+.btn{
+    padding-top: 0px;
+    margin-left: 20px;
+}
+tr,td,th{
+    height:38px;
+    text-align: center;
+}
+.modal-img img{
+    width:570px;
+}
+
+
+.banner a:link {
+    font-size: 12px;
+    color: #eef8ff;
+    text-decoration: none;
+}
+.banner a:visited {
+    font-size: 12px;
+    color: #eef8ff;
+    text-decoration: none;
+}
+.banner a:hover {
+    font-size: 12px;
+    color: #eef8ff;
+    text-decoration: underline;
+}

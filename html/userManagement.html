@@ -1,0 +1,557 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>业务派单</title>
+    <script src="../js/dist/jquery-3.1.1.min.js"></script>
+    <script src="../js/dist/jquery.validate.min.js"></script>
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/font-awesome/4.6.3/css/font-awesome.min.css">
+    <link href="http://cdn.static.runoob.com/libs/bootstrap/3.3.7/css/bootstrap.min.css" rel="stylesheet">
+    <script type="text/javascript" src="../js/dist/bootstrap.min.js"></script>
+    <script type="text/javascript" src="../js/project-js/userManagement.js"></script>
+    <link href="../css/userManagement.css" type="text/css" rel="stylesheet">
+</head>
+<body>
+<!--
+<div class="banner">
+    <div><img src="../img/logo (2).png"></div>
+    <div class="banner-right">
+        <div class="icon">
+            <a href="">
+            <img src="../img/首页.png">
+            <p>首页</p>
+            </a>
+        </div>
+        <div class="icon">
+            <a data-toggle="modal" href="#mymodal-link">
+            <img src="../img/电话.png">
+            <p>电话接单</p>
+            </a>
+        </div>
+        <div class="icon">
+            <a data-toggle="modal" href="#change_password">
+            <img src="../img/设置.png">
+            <p>修改密码</p>
+            </a>
+        </div>
+        <div class="icon">
+            <a href="">
+            <img src="../img/退出.png">
+            <p>退出</p>
+            </a>
+        </div>
+    </div>
+</div>
+<div class="container-1">
+    <div class="slider">
+        <div class="login">
+            <div class="image">
+                <img src="../img/管理员.png">
+            </div>
+            <div class="character">
+                <h1>张三</h1><br>
+                <h2>欢迎登录！</h2>
+            </div>
+        </div>
+        <div class="menu" >
+            <h2 a href="#">业务管理</h2>
+        </div>
+        <div class="menu">
+            <h2 a href="#">单位管理</h2>
+        </div>
+        <div class="menu">
+            <h2 a href="#">人员管理</h2>
+        </div>
+        <div class="menu">
+            <h2 a href="#">维修知识库管理</h2>
+        </div>
+        <div class="menu">
+            <h2 a href="#">报价知识库管理</h2>
+        </div>
+    </div>
+          -->
+<div class="right-container">
+    <div class="row">
+        <div class="navbar">
+            <div class="col-md-1">
+                <img src="../img/当前位置.png">
+            </div>
+            <div class="col-md-4">
+                <p>您当前的位置：首页 > 客户管理</p>
+            </div>
+            <div class="col-md-7">
+                <h1 id="TIME"></h1>
+            </div>
+        </div>
+    </div>
+    <div class="main">
+        <div class="box_first">
+            <div class="navBar1">
+                <div class="navBar1-left">
+                    <ul class="nav nav-tabs">
+                        <li><a  href="#tab_1" data-toggle="tab" id="wechat">用户</a></li>
+                        <li><a  href="#tab_2" data-toggle="tab" id="technician">技师用户</a></li>
+                        <li><a  href="#tab_3" data-toggle="tab" id="administrator">派单员</a></li>
+                    </ul>
+                </div>
+
+                <div class="input-group" style="width: 20%">
+                    <div class="search-right">
+                        <input id="input_1"  class="form-control" type="text" placeholder=" 请输入关键字..." >
+                    </div>
+                    <span class="input-group-btn">
+                            <button id="button_search" class="btn btn-default" type="button">
+                                <span class="glyphicon glyphicon-search" aria-hidden="true"></span>
+                            </button>
+                        </span>
+                </div>
+            </div>
+
+            <div class="tab-content">
+                <div id="tab_1" class="tab-pane fade">
+                    <div class="row box_table">
+                        <div class="table-responsive">
+                            <table class="table table-striped">
+                                <tbody>
+                                <tr>
+                                    <th><input type="checkbox" id="checkAll">&nbsp全选</th>
+                                    <th>姓名</th>
+                                    <th>性别</th>
+                                    <th>注册日期</th>
+                                    <th>联系方式</th>
+                                </tr>
+                                </tbody>
+                            </table>
+                        </div>
+                    </div>
+                    <div class="box_under">
+                        <ul class="pagination user_page">
+                        </ul>
+                    </div>
+                </div>
+
+                <div id="tab_2" class="tab-pane fade">
+                    <div class="row box_select_up">
+                        <div class="btn-group box_select_entirety">
+                            <button type="button" class="btn btn-default box_select">请点击选择工种</button>
+                            <button type="button" class="btn btn-default dropdown-toggle"
+                                    data-toggle="dropdown">
+                                <span class="caret"></span>
+                                <span class="sr-only">切换下拉菜单</span>
+                            </button>
+                            <ul class="dropdown-menu box_select_ul" role="menu">
+                                <li><a href="#">泥瓦</a></li>
+                                <li><a href="#">涂料油漆</a></li>
+                                <li><a href="#">蜘蛛人</a></li>
+                                <li><a href="#">木工</a></li>
+                                <li><a href="#">木作</a></li>
+                                <li><a href="#">铁艺油漆</a></li>
+                                <li><a href="#">粘贴壁纸</a></li>
+                                <li><a href="#">石材修补</a></li>
+                                <li><a href="#">电工</a></li>
+                                <li><a href="#">管道工</a></li>
+                                <li><a href="#">锁匠</a></li>
+                                <li><a href="#">门窗制安</a></li>
+                                <li><a href="#">收纳安装</a></li>
+                                <li><a href="#">杂工</a></li>
+                            </ul>
+                        </div>
+
+                        <div class="btn-group box_select_entirety">
+                            <button type="button" class="btn btn-default box_select">请点击选择单位</button>
+                            <button type="button" class="btn btn-default dropdown-toggle" id="select_unit"
+                                    data-toggle="dropdown">
+                                <span class="caret"></span>
+                                <span class="sr-only">切换下拉菜单</span>
+                            </button>
+                            <ul class="dropdown-menu box_select_ul" role="menu">
+                                <div class="list_3">
+
+                                </div>
+                            </ul>
+                        </div>
+
+                        <div class="btn-group box_select_entirety">
+                            <button type="button" class="btn btn-default box_select">请点击选择评分范围</button>
+                            <button type="button" class="btn btn-default dropdown-toggle"
+                                    data-toggle="dropdown">
+                                <span class="caret"></span>
+                                <span class="sr-only">切换下拉菜单</span>
+                            </button>
+                            <ul class="dropdown-menu box_select_ul" role="menu">
+                                <li><a href="#">功能</a></li>
+                                <li><a href="#">另一个功能</a></li>
+                                <li><a href="#">其他</a></li>
+                                <li><a href="#">分离的链接</a></li>
+                            </ul>
+                        </div>
+                    </div>
+                    <div class="row box_table">
+                        <div class="table-responsive">
+                            <table class="table table-striped">
+                                <tbody>
+                                <tr>
+                                    <th><input type="checkbox" id="checkAll_1">&nbsp全选</th>
+                                    <th>姓名</th>
+                                    <th>性别</th>
+                                    <th>注册日期</th>
+                                    <th>联系方式</th>
+                                    <th>擅长工种</th>
+                                    <th>技能证书</th>
+                                    <th>所属单位</th>
+                                    <th>评分</th>
+                                    <th>操作</th>
+                                </tr>
+                                </tbody>
+                            </table>
+                        </div>
+                    </div>
+
+                    <div class="box_under" >
+                        <div class="botton_bottom_up">
+                            <a class="btn btn-default botton_bottom">导入数据</a>
+                            <a class="btn btn-default botton_bottom" href="#technician_pop_up" data-toggle="modal" id="dropdown_select_unit">增加</a>
+                            <a class="btn btn-default botton_bottom">删除</a>
+                        </div>
+
+                        <div>
+                            <ul class="pagination user_page_Technican">
+
+                            </ul>
+                        </div>
+                    </div>
+                </div>
+
+                <div id="tab_3" class="tab-pane fade">
+                    <div class="row box_table">
+                        <div class="table-responsive">
+                            <table class="table table-striped">
+                                <tbody>
+                                <tr>
+                                    <th><input type="checkbox" id="checkAll_2">&nbsp全选</th>
+                                    <th>楼盘名称</th>
+                                    <th>派单员账号</th>
+                                    <th>联系人</th>
+                                    <th>联系电话</th>
+                                    <th>注册日期</th>
+                                    <th>操作</th>
+                                </tr>
+                                </tbody>
+                            </table>
+                        </div>
+                    </div>
+
+                    <div class="box_under">
+                        <div class="botton_bottom_up">
+                            <a class="btn btn-default botton_bottom">导入数据</a>
+                            <a class="btn btn-default botton_bottom" href="#administrator_pop_up" data-toggle="modal" id="dropdown_select_administrator" >增加</a>
+                            <a class="btn btn-default botton_bottom">删除</a>
+                        </div>
+
+                        <div>
+                            <ul class="pagination user_page_ad">
+                            </ul>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+</div>
+
+<!--
+<div class="modal fade" tabindex="-1" role="dialog" aria-labelledby="myLargeModalLabel" aria-hidden="true" id="mymodal-link">
+    <div class="modal-dialog">
+        <div class="modal-content">
+            <div class="modal-header">
+                <button type="button" class="close" data-dismiss="modal"><span aria-hidden="true">&times;</span><span class="sr-only">Close</span></button>
+                <h4 class="modal-title">电话接单</h4>
+            </div>
+            <div class="modal-body" id="modal-body">
+                <div class="user-message">
+                    <div class="user-message-titie">
+
+                        <span>用户信息</span>
+                    </div>
+                    <form class="form-horizontal" role="form">
+                        <div class="form-group">
+                            <p class="col-md-5">联系人姓名</p>
+                            <input type="text" class="col-md-7" id="user-name" name="user-name">
+                        </div>
+                        <div class="form-group">
+                            <p class="col-md-5">联系人电话</p>
+                            <input type="text" class="col-md-7"  name="tel">
+                        </div>
+                        <div class="form-group">
+                            <p class="col-md-5">维修楼盘号</p>
+                            <select class="col-md-7"  name="village-num" selected="selected">
+                                <option value =""> </option>
+                                <option>1</option>
+                                <option>2</option>
+                                <option>3</option>
+                                <option>4</option>
+                                <option>5</option>
+                            </select>
+                        </div>
+                        <div class="form-group">
+                            <p class="col-md-5">维修栋号</p>
+                            <select class="col-md-7" name="build-num" selected="selected">
+                                <option value =""> </option>
+                                <option>1</option>
+                                <option>2</option>
+                                <option>3</option>
+                                <option>4</option>
+                                <option>5</option>
+                            </select>
+                        </div>
+                        <div class="form-group">
+                            <p class="col-md-5">维修房间号</p>
+                            <select class="col-md-7" name="house-num" selected="selected">
+                                <option value =""> </option>
+                                <option>1</option>
+                                <option>2</option>
+                                <option>3</option>
+                                <option>4</option>
+                                <option>5</option>
+                            </select>
+                        </div>
+                    </form>
+                </div>
+
+                <div class="fix-message">
+                    <div class="user-message-titie">
+                        <span>维修信息</span>
+                    </div>
+                    <form class="form-horizontal" role="form">
+                        <div class="form-group">
+                            <p class="col-md-5">一级问题</p>
+                            <select class="col-md-7" name="ques1" selected="selected">
+                                <option value =""> </option>
+                                <option>1</option>
+                                <option>2</option>
+                                <option>3</option>
+                                <option>4</option>
+                                <option>5</option>
+                            </select>
+                        </div>
+                        <div class="form-group">
+                            <p class="col-md-5">二级问题</p>
+                            <select class="col-md-7" name="ques2" selected="selected">
+                                <option value =""> </option>
+                                <option>1</option>
+                                <option>2</option>
+                                <option>3</option>
+                                <option>4</option>
+                                <option>5</option>
+                            </select>
+                        </div>
+
+
+                    </form>
+                    <div class="form-group">
+                        <p >问题描述</p>
+                        <textarea  rows="4" cols="40" name="description">
+	  </textarea>
+
+                    </div>
+                </div>
+
+            </div>
+
+            <div class="modal-footer">
+
+                <button type="button" class="btn btn-primary" id="save" data-dismiss="modal">保存</button>
+            </div>
+
+        </div>
+    </div>
+</div>
+
+
+<div class="modal fade" tabindex="-1" role="dialog" aria-labelledby="myLargeModalLabel" aria-hidden="true" id="change_password">
+    <div class="modal-dialog">
+        <div class="modal-content" style="width: 400px;">
+            <div class="modal-header">
+                <button type="button" class="close" data-dismiss="modal"><span aria-hidden="true">&times;</span><span class="sr-only">Close</span></button>
+                <h4 class="modal-title">修改密码</h4>
+            </div>
+            <div class="modal-body"  >
+                <form class="form-horizontal" id="pwd-form" method="get" role="form">
+                    <div class="form-group" >
+                        <p class="col-md-4">原密码:</p>
+                        <input type="password" class="col-md-4" id="former" name="former" >
+                        <span  style="font-size: 12px;color: red;"></span>
+
+                    </div>
+                    <div class="form-group" >
+                        <p class="col-md-4">新密码:</p>
+                        <input type="password" class="col-md-4"  id="newpwd" name="newpwd">
+                        <span  style="font-size: 12px;color: red;"></span>
+                    </div>
+
+                    <div class="form-group" >
+                        <p class="col-md-4">确认密码:</p>
+                        <input type="password" class="col-md-4" id="surepwd" name="surepwd">
+                        <span  style="font-size: 12px;color: red;"></span>
+                    </div>
+                </form>
+            </div>
+
+            <div class="modal-footer">
+
+                <button type="button" class="btn btn-primary" id="save1" data-dismiss="modal">保存</button>
+<<<<<<< HEAD
+            </div>
+        </div>
+    </div>
+</div>
+
+-->
+
+
+<div class="modal fade" id="administrator_pop_up" tabindex="-1" role="dialog" aria-labelledby="mySmallModalLabel" aria-hidden="true">
+    <div class="modal-dialog">
+        <div class="modal-content" style="width:400px;">
+            <div class="modal-header">
+                <button type="button" class="close" data-dismiss="modal"><span aria-hidden="true">&times;</span><span class="sr-only">Close</span></button>
+                <h4 class="modal-title">增加派单员</h4>
+            </div>
+            <div class="modal-body" style="text-align: center">
+                <form class="form-horizontal" id="add_administrator" method="get" role="form">
+                    <div class="form-group" >
+                        <p class="col-md-4">选择楼盘</p>
+                        <select class="col-md-4" id="administrator_sect" multiple="multiple">
+                        </select>
+                    </div>
+                    <div class="form-group" >
+                        <p class="col-md-4">派单员姓名</p>
+                        <input type="text" class="col-md-4"  id="administrator_username" name="administrator_username">
+                    </div>
+                    <div class="form-group" >
+                        <p class="col-md-4">开发商名称</p>
+                        <input type="text" class="col-md-4"  id="administrato_developName" name="administrator_developName">
+                    </div>
+                    <div class="form-group" >
+                        <p class="col-md-4">派单员账号</p>
+                        <input type="text" class="col-md-4"  id="administrator_account" name="administrator_account">
+                    </div>
+                </form>
+            </div>
+            <div class="modal-footer">
+                <button type="button" id="save_administrator" class="btn btn-primary"  data-dismiss="modal">确定</button>
+
+            </div>
+        </div>
+    </div>
+</div>
+
+<div class="modal fade" id="technician_pop_up" tabindex="-1" role="dialog" aria-labelledby="mySmallModalLabel" aria-hidden="true">
+    <div class="modal-dialog">
+        <div class="modal-content" style="width:400px;">
+            <div class="modal-header">
+                <button type="button" class="close" data-dismiss="modal"><span aria-hidden="true">&times;</span><span class="sr-only">Close</span></button>
+                <h4 class="modal-title">增加技师</h4>
+            </div>
+            <div class="modal-body" style="text-align: center">
+                <form class="form-horizontal" id="add_technician" method="get" role="form">
+                    <div class="form-group" >
+                        <p class="col-md-4">姓名</p>
+                        <input type="text" class="col-md-4" id="technician_name" name="former" >
+                    </div>
+                    <div class="form-group" >
+                        <p class="col-md-4">联系方式</p>
+                        <input type="text" class="col-md-4"  id="technician_cellphone" name="technician_cellphone">
+                    </div>
+                    <div class="form-group" >
+                        <p class="col-md-4">选择单位</p>
+                        <select class="col-md-4" id="technician_unit_sect">
+                        </select>
+                    </div>
+                    <div class="form-group" >
+                        <p class="col-md-4">账号</p>
+                        <input type="text" class="col-md-4"  id="technician_account" name="technician_account">
+                    </div>
+                </form>
+            </div>
+            <div class="modal-footer">
+                <button type="button" id="save_technician" class="btn btn-primary"  data-dismiss="modal">确定</button>
+            </div>
+        </div>
+    </div>
+</div>
+
+
+<div class="modal fade" id="administrator_pop_up_edit" tabindex="-1" role="dialog" aria-labelledby="mySmallModalLabel" aria-hidden="true">
+    <div class="modal-dialog">
+        <div class="modal-content" style="width:400px;">
+            <div class="modal-header">
+                <button type="button" class="close" data-dismiss="modal"><span aria-hidden="true">&times;</span><span class="sr-only">Close</span></button>
+                <h4 class="modal-title">编辑派单员</h4>
+            </div>
+            <div class="modal-body" style="text-align: center">
+                <form class="form-horizontal" id="add_administrator_edit" method="get" role="form">
+                    <div class="form-group" >
+                        <p class="col-md-4">姓名</p>
+                        <input type="text" class="col-md-4" id="administrator_name_edit" name="former" >
+                    </div>
+                    <div class="form-group" >
+                        <p class="col-md-4">联系方式</p>
+                        <input type="text" class="col-md-4"  id="administrator_cellphone_edit" name="technician_cellphone">
+                    </div>
+                    <div class="form-group" >
+                        <p class="col-md-4">选择单位</p>
+                        <select class="col-md-4" id="administrator_unit_sect_edit">
+                        </select>
+                    </div>
+                    <div class="form-group" >
+                        <p class="col-md-4">账号</p>
+                        <input type="text" class="col-md-4"  id="administrator_account_edit" name="technician_account">
+                    </div>
+                </form>
+            </div>
+            <div class="modal-footer">
+                <button type="button" id="save_administrator_edit" class="btn btn-primary"  data-dismiss="modal">确定</button>
+            </div>
+        </div>
+    </div>
+</div>
+
+<div class="modal fade" id="technician_pop_up_edit" tabindex="-1" role="dialog" aria-labelledby="mySmallModalLabel" aria-hidden="true">
+    <div class="modal-dialog">
+        <div class="modal-content" style="width:400px;">
+            <div class="modal-header">
+                <button type="button" class="close" data-dismiss="modal"><span aria-hidden="true">&times;</span><span class="sr-only">Close</span></button>
+                <h4 class="modal-title">编辑技师</h4>
+            </div>
+            <div class="modal-body" style="text-align: center">
+                <form class="form-horizontal" id="add_technician_edit" method="get" role="form">
+                    <div class="form-group" >
+                        <p class="col-md-4">姓名</p>
+                        <input type="text" class="col-md-4" id="technician_name_edit" name="former" >
+                    </div>
+                    <div class="form-group" >
+                        <p class="col-md-4">联系方式</p>
+                        <input type="text" class="col-md-4"  id="technician_cellphone_edit" name="technician_cellphone">
+                    </div>
+                    <div class="form-group" >
+                        <p class="col-md-4">选择单位</p>
+                        <select class="col-md-4" id="technician_unit_sect_edit">
+                        </select>
+                    </div>
+                    <div class="form-group" >
+                        <p class="col-md-4">账号</p>
+                        <input type="text" class="col-md-4"  id="technician_account_edit" name="technician_account">
+                    </div>
+                </form>
+            </div>
+            <div class="modal-footer">
+                <button type="button" id="save_technician_edit" class="btn btn-primary"  data-dismiss="modal">确定</button>
+            </div>
+        </div>
+    </div>
+</div>
+
+
+</body>
+</html>

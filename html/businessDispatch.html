@@ -1,0 +1,122 @@
+<!DOCTYPE html>
+<html lang="en" style="height:100%">
+<head>
+    <meta charset="UTF-8">
+    <title>业务派单</title>
+    <script src="../js/dist/jquery-3.1.1.min.js"></script>
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/font-awesome/4.6.3/css/font-awesome.min.css">
+    <link href="http://cdn.static.runoob.com/libs/bootstrap/3.3.7/css/bootstrap.min.css" rel="stylesheet">
+    <link href="../css/businessDispatch.css" type="text/css" rel="stylesheet">
+    <link href="../css/common.css" type="text/css" rel="stylesheet">
+    <script src="https://cdn.bootcss.com/bootstrap/3.3.7/js/bootstrap.min.js" integrity="sha384-Tc5IQib027qvyjSMfHjOMaLkfuWVxZxUPnCJA7l2mCWNIpG9mGCD8wGNIcPD7Txa" crossorigin="anonymous"></script>
+<script src="../js/project-js/businessDispatch.js"></script>
+</head>
+<body style="height: 100%">
+<div class="right-container">
+    <div class="row">
+        <div class="navbar">
+            <div class="col-md-1">
+                <img src="../img/当前位置.png">
+            </div>
+            <div class="col-md-4">
+                <p>您当前的位置：业务派单></p>
+            </div>
+            <div class="col-md-7">
+                <h1 id="TIME"></h1>
+            </div>
+        </div>
+    </div>
+
+    <div class="main">
+        <div class="caption">
+            <!--标签页-->
+            <ul class="nav nav-tabs" id="DispatchTab">
+                <li role="presentation" class="active"><a href="#1" data-toggle="tab" id="normalDispatch">正常派单</a></li>
+                <li role="presentation"><a href="#2" data-toggle="tab" id="changeDispatch">转单</a></li>
+                <li role="presentation"><a href="#3" data-toggle="tab" id="abnormalDispatch">异常单</a></li>
+            </ul>
+            <hr>
+            <!--表格-->
+            <div class="table-fa">
+                <table  class="table table-striped">
+                    <thead>
+                    <tr>
+                        <th id="checkcox" ><input type="checkbox">全选</th>
+                        <th id="address">地址</th>
+                        <th id="name">姓名</th>
+                        <th id="phone">电话</th>
+                        <th id="question">报修问题</th>
+                        <th id="data">上门时间</th>
+                        <th id="status">状态</th>
+                        <th id="operation">操作</th>
+                    </tr>
+                    </thead>
+                    <tbody>
+
+                    </tbody>
+                </table>
+                <!--<div class="table-scroll">
+                    <table  class="table table-striped">
+                        <tbody>
+
+                        </tbody>
+                    </table>
+                </div>-->
+            </div>
+            <div class="HolyGrail-bottom">
+                <div>
+                    <button type="button" class="button-table btn btn-primary">忽略</button>
+                </div>
+                <nav aria-label="Page navigation">
+                    <ul class="pagination">
+
+                    </ul>
+                </nav>
+            </div>
+        </div>
+    </div>
+
+<!-- 模态框（Modal） -->
+<div class="modal fade" id="myModal" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true">
+    <div class="modal-dialog">
+        <div class="modal-content">
+            <div class="modal-header">
+                <button type="button" class="close" data-dismiss="modal" aria-hidden="true">&times;</button>
+                <h4 class="modal-title" id="myModalLabel">业主出现的问题</h4>
+            </div>
+            <div class="modal-body modal-img">
+                <!--使用轮播图进行图片播放-->
+                <div id="carousel-example-generic" class="carousel slide" data-ride="carousel">
+                    <!-- Indicators -->
+                    <ol class="carousel-indicators">
+                        <li data-target="#carousel-example-generic" data-slide-to="0" class="active"></li>
+                        <li data-target="#carousel-example-generic" data-slide-to="1"></li>
+                        <li data-target="#carousel-example-generic" data-slide-to="2"></li>
+                    </ol>
+
+                    <!-- Wrapper for slides -->
+                    <div class="carousel-inner" id="imgquestion" role="listbox">
+
+                    </div>
+                    <!-- Controls -->
+                    <a class="left carousel-control" href="#carousel-example-generic" role="button" data-slide="prev">
+                        <span class="glyphicon glyphicon-chevron-left" aria-hidden="true"></span>
+                        <span class="sr-only">Previous</span>
+                    </a>
+                    <a class="right carousel-control" href="#carousel-example-generic" role="button" data-slide="next">
+                        <span class="glyphicon glyphicon-chevron-right" aria-hidden="true"></span>
+                        <span class="sr-only">Next</span>
+                    </a>
+                </div>
+            </div>
+            <div class="modal-footer">
+                <button type="button" class="btn btn-default" data-dismiss="modal">关闭</button>
+            </div>
+        </div><!-- /.modal-content -->
+    </div><!-- /.modal -->
+</div>
+
+</div>
+
+</body>
+</html>
