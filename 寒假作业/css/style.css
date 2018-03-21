@@ -1,0 +1,387 @@
+*{
+	margin: 0;
+	padding: 0;
+	font-family: Microsoft Yahei;
+}
+
+.header
+{
+  
+  width: 1600px;
+  height: 90px;
+  border-bottom: 3px solid red;
+  overflow: hidden;
+  display: flex;
+  flex-direction: row
+}
+
+.logo
+{
+	
+	width:auto;
+	
+}
+
+.search
+{
+	margin-left: 800px;
+	width:auto;
+	margin-top: 50px;
+	top:50px;
+  
+}
+
+
+.topnav
+{
+	
+	width: 1600px;
+	padding: 10px;
+	
+    
+}
+
+.topnav>div
+{
+
+float: left;
+position: relative;
+
+}
+
+.topnav a
+{
+	text-decoration: none;
+padding-right: 40px;
+padding-left: 40px;
+padding-bottom: 20px;
+font-size: 20px;
+color:#000;
+
+}
+
+
+.topnav a:hover
+{
+border-bottom: 3px solid red;
+}
+
+
+.main
+{
+	width: 1600px;
+	overflow: hidden;
+
+	
+}
+
+.left
+{
+	width: 300px;
+	float: left;
+}
+
+.left1
+{
+	padding:30px;
+	border-bottom: 2px solid red;
+	font-size: 25px;
+	text-align: center;
+}
+
+.left img
+{
+	width:300px;
+	height: 300px;
+	padding-top: 20px;
+    padding-bottom: 20px;
+    border-bottom: 1px solid red;
+}
+.mid
+{
+	position: absolute;
+	left:400px;
+	width:600px;
+	
+	padding:30px;
+	
+
+}
+
+.mid span
+{
+	font-size:31px;
+	font-weight: bold;
+
+}
+
+.mid a
+{
+	text-decoration: none;
+	font-size: 20px;
+	padding: 10px;
+	color: black;
+}
+.mid a:hover
+{
+    color:red;
+}
+
+.right
+{
+	width: 500px;
+	float: right;
+}
+
+
+.pic
+{
+	margin-top: 200px;
+}
+
+.pic img
+{
+	
+	width:600px;
+	height:400px;
+
+}
+
+.pic2 img
+{
+	margin-top: 100px;
+	width:400px;
+	height: 600px;
+}
+
+
+
+.cure
+{
+	position: absolute;
+	display: none;
+	top:55px;
+    left: 18px;
+    padding-top: 10px;
+   
+    padding-left: 8px;
+    padding-right: 8px;
+	font-size: 15px;
+	background: white;
+	border:1px solid #000;
+	border-radius: 13px;
+}
+
+.cure p
+{
+   padding-bottom: 18px;
+}
+.after
+{
+	position: absolute;
+	display: none;
+	top:55px;
+    left: 18px;
+    padding-top: 10px;
+   
+    padding-left: 8px;
+    padding-right: 8px;
+	font-size: 15px;
+	background: white;
+	border:1px solid #000;
+	border-radius: 13px;
+}
+
+.after p
+{
+   padding-bottom: 18px;
+}
+.idol
+{
+	position: absolute;
+	display: none;
+	top:55px;
+    left: 18px;
+    padding-top: 10px;
+   
+    padding-left: 8px;
+    padding-right: 8px;
+	font-size: 15px;
+	background: white;
+	border:1px solid #000;
+	border-radius: 13px;
+	 z-index: 9999;
+}
+
+.idol p
+{
+   padding-bottom: 18px;
+}
+.sorrow
+{
+	position: absolute;
+	display: none;
+	top:55px;
+    left: 18px;
+    padding-top: 10px;
+   
+    padding-left: 8px;
+    padding-right: 8px;
+	font-size: 15px;
+	background: white;
+	border:1px solid #000;
+	border-radius: 13px;
+	 z-index: 9999;
+}
+
+.sorrow p
+{
+   padding-bottom: 18px;
+}
+.god
+{
+	position: absolute;
+	display: none;
+	top:55px;
+    left: 18px;
+    padding-top: 10px;
+   
+    padding-left: 8px;
+    padding-right: 8px;
+	font-size: 15px;
+	background: white;
+	border:1px solid #000;
+	border-radius: 13px;
+	 z-index: 9999;
+}
+
+.god p
+{
+   padding-bottom: 18px;
+}
+.exciting
+{
+	position: absolute;
+	display: none;
+	top:55px;
+    left: 18px;
+    padding-top: 10px;
+   
+    padding-left: 8px;
+    padding-right: 8px;
+	font-size: 15px;
+	background: white;
+	border:1px solid #000;
+	border-radius: 13px;
+	 z-index: 9999;
+}
+
+.exciting p
+{
+   padding-bottom: 18px;
+}
+.wisdom
+{
+	position: absolute;
+	display: none;
+	top:55px;
+    left: 18px;
+    padding-top: 10px;
+   
+    padding-left: 8px;
+    padding-right: 8px;
+	font-size: 15px;
+	background: white;
+	border:1px solid #000;
+	border-radius: 13px;
+	 z-index: 9999;
+}
+
+.wisdom p
+{
+   padding-bottom: 18px;
+}
+.love
+{
+	position: absolute;
+	display: none;
+	top:55px;
+    left: 18px;
+    padding-top: 10px;
+   
+    padding-left: 8px;
+    padding-right: 8px;
+	font-size: 15px;
+	background: white;
+	border:1px solid #000;
+	border-radius: 13px;
+	 z-index: 9999;
+}
+
+.love p
+{
+   padding-bottom: 18px;
+}
+.girl
+{
+	position: absolute;
+	display: none;
+	top:55px;
+    left: 18px;
+    padding-top: 10px;
+   
+    padding-left: 8px;
+    padding-right: 8px;
+	font-size: 15px;
+	background: white;
+	border:1px solid #000;
+	border-radius: 13px;
+	 z-index: 9999;
+}
+
+.girl p
+{
+   padding-bottom: 18px;
+}
+.advan
+{
+	position: absolute;
+	display: none;
+	top:55px;
+    left: 18px;
+    padding-top: 10px;
+   
+    padding-left: 8px;
+    padding-right: 8px;
+	font-size: 15px;
+	background: white;
+	border:1px solid #000;
+	border-radius: 13px;
+	 z-index: 9999;
+}
+
+.advan p
+{
+   padding-bottom: 18px;
+}
+.day
+{
+	position: absolute;
+	display: none;
+	top:55px;
+    left: 18px;
+    padding-top: 10px;
+   
+    padding-left: 8px;
+    padding-right: 8px;
+	font-size: 15px;
+	background: white;
+	border:1px solid #000;
+	border-radius: 13px;
+	 z-index: 9999;
+}
+
+.day p
+{
+   padding-bottom: 18px;
+}
